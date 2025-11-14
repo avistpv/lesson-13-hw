@@ -1,0 +1,316 @@
+.task-details-page {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.task-details-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.task-details-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    padding: 2px;
+    background: linear-gradient(135deg, rgba(100, 108, 255, 0.3), rgba(82, 91, 242, 0.1));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.task-details-card:hover::before {
+    opacity: 1;
+}
+
+.task-details-card h1 {
+    font-size: 2rem;
+    margin: 0 0 1.5rem 0;
+    color: #ffffff;
+    font-weight: 300;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.description-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.description-section h3 {
+    font-size: 1.2rem;
+    margin: 0 0 0.75rem 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.85rem;
+}
+
+.description-section p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.task-details-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.meta-label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    font-weight: 500;
+    min-width: 80px;
+}
+
+.task-status,
+.task-priority,
+.task-deadline,
+.task-date {
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+    border-radius: 12px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.task-status {
+    background: rgba(100, 108, 255, 0.2);
+    color: #646cff;
+}
+
+.task-status-pending {
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+}
+
+.task-status-in-progress {
+    background: rgba(13, 110, 253, 0.2);
+    color: #0d6efd;
+}
+
+.task-status-completed {
+    background: rgba(40, 167, 69, 0.2);
+    color: #28a745;
+}
+
+.task-priority {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.task-priority-low {
+    background: rgba(40, 167, 69, 0.2);
+    color: #28a745;
+}
+
+.task-priority-medium {
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+}
+
+.task-priority-high {
+    background: rgba(220, 53, 69, 0.2);
+    color: #dc3545;
+}
+
+.task-deadline,
+.task-date {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.completed-badge {
+    color: #28a745;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.loading-state,
+.error-state,
+.not-found-state {
+    text-align: center;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.loading-state p,
+.not-found-state p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2rem;
+}
+
+.error-state p {
+    color: #ff6b6b;
+    font-size: 1.2rem;
+}
+
+.btn {
+    border-radius: 12px;
+    border: 1px solid transparent;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #646cff, #535bf2);
+    color: white;
+    border: none;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:hover:not(:disabled)::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(100, 108, 255, 0.4), 0 4px 12px rgba(100, 108, 255, 0.2);
+}
+
+.btn-primary:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(100, 108, 255, 0.3);
+}
+
+.btn-primary:disabled {
+    background: linear-gradient(135deg, rgba(100, 108, 255, 0.4), rgba(82, 91, 242, 0.3));
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+    .task-details-card {
+        padding: 1.5rem;
+    }
+
+    .task-details-card h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .task-details-card {
+        background: rgba(255, 255, 255, 0.8);
+        border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .task-details-card h1 {
+        color: #213547;
+    }
+
+    .description-section {
+        border-bottom-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .description-section h3 {
+        color: rgba(33, 53, 71, 0.9);
+    }
+
+    .description-section p {
+        color: rgba(33, 53, 71, 0.8);
+    }
+
+    .meta-label {
+        color: rgba(33, 53, 71, 0.7);
+    }
+
+    .task-details-meta {
+        border-top-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .task-status,
+    .task-priority,
+    .task-deadline,
+    .task-date {
+        background: rgba(0, 0, 0, 0.05);
+    }
+
+    .task-deadline,
+    .task-date {
+        color: rgba(33, 53, 71, 0.8);
+    }
+
+    .loading-state,
+    .error-state,
+    .not-found-state {
+        background: rgba(255, 255, 255, 0.8);
+        border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .loading-state p,
+    .not-found-state p {
+        color: #213547;
+    }
+
+    .error-state p {
+        color: #dc3545;
+    }
+}
