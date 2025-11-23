@@ -11,6 +11,8 @@
     "eslint-plugin-react-refresh": "^0.4.22",
     "globals": "^16.5.0",
     "typescript-eslint": "^8.46.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1"
   }
 }
-
