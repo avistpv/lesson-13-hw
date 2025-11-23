@@ -27,6 +27,15 @@ export const reactConfig = [
             'react-refresh': reactRefresh,
         },
         rules: {
+            'prettier/prettier': 'error',
+            'semi': ['error', 'always'],
+            '@typescript-eslint/no-unused-vars': [
+                'error',
+                {
+                    argsIgnorePattern: '^_',
+                    varsIgnorePattern: '^_',
+                },
+            ],
             ...reactHooks.configs.recommended.rules,
             'react-refresh/only-export-components': [
                 'warn',

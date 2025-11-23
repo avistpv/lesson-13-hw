@@ -7,7 +7,7 @@ export const baseConfig = tseslint.config(
         ignores: ['node_modules', 'dist', 'build', 'coverage', '*.config.*'],
     },
     {
-        files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
+        files: ['**/*.{js,mjs,cjs,ts,mts,cts,tsx,jsx}'],
         extends: [
             js.configs.recommended,
             ...tseslint.configs.recommended,

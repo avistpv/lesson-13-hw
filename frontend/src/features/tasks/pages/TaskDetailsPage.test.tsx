@@ -139,6 +139,7 @@ describe("TaskDetailsPage", () => {
   });
 
   it("displays not found state when task is null", async () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     vi.mocked(tasksApi.getById).mockResolvedValue(null as any);
 
     renderWithRouter(<TaskDetailsPage />);
