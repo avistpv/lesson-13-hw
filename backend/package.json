@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepare": "husky",
-    "build": "tsc"
+    "build": "tsc -b tsconfig.build.json"
   },
   "dependencies": {
     "cors": "^2.8.5",
